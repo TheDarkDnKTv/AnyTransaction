@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/anytransaction
+    username: postgres
+    password: postgres
+  jpa:
+    generate-ddl: true
+    show-sql: true
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+
+spring.jpa.properties:
+  hibernate:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    default_schema: public
+    globally_quoted_identifiers: true
+    hbm2ddl:
+      auto: update
+    connection:
+      characterEncoding: utf8
