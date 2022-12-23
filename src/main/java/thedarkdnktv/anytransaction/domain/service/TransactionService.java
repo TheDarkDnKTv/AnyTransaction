@@ -1,23 +1,24 @@
-package thedarkdnktv.anytransaction.service;
+package thedarkdnktv.anytransaction.domain.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.validation.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import thedarkdnktv.anytransaction.data.PaymentType;
-import thedarkdnktv.anytransaction.data.entity.TransactionEntity;
-import thedarkdnktv.anytransaction.data.graphql.inputs.SalesRequestInput;
-import thedarkdnktv.anytransaction.data.graphql.inputs.TransactionInput;
-import thedarkdnktv.anytransaction.data.graphql.types.SalesDto;
-import thedarkdnktv.anytransaction.data.graphql.types.TransactionResult;
-import thedarkdnktv.anytransaction.data.repository.CustomerRepository;
-import thedarkdnktv.anytransaction.data.repository.TransactionRepository;
+
+import thedarkdnktv.anytransaction.domain.enums.PaymentType;
+import thedarkdnktv.anytransaction.domain.entity.TransactionEntity;
+import thedarkdnktv.anytransaction.domain.graphql.inputs.SalesRequestInput;
+import thedarkdnktv.anytransaction.domain.graphql.inputs.TransactionInput;
+import thedarkdnktv.anytransaction.domain.graphql.types.SalesDto;
+import thedarkdnktv.anytransaction.domain.graphql.types.TransactionResult;
+import thedarkdnktv.anytransaction.domain.repository.CustomerRepository;
+import thedarkdnktv.anytransaction.domain.repository.TransactionRepository;
 import thedarkdnktv.anytransaction.domain.PaymentHelper;
 import thedarkdnktv.anytransaction.exception.NotFoundException;
 import thedarkdnktv.anytransaction.utils.Validators;
 
+import jakarta.validation.ValidationException;
 import java.util.*;
 
 @Service
@@ -103,7 +104,7 @@ public class TransactionService {
         try {
             return this.mapper.readValue(info, new TypeReference<Map<String, Object>>() {});
         } catch (Exception e) {
-            throw new ValidationException("Json is corrupted", e);
+            return Collections.emptyMap();
         }
     }
 }

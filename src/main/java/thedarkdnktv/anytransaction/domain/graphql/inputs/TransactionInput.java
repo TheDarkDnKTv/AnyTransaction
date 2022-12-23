@@ -1,4 +1,4 @@
-package thedarkdnktv.anytransaction.data.graphql.inputs;
+package thedarkdnktv.anytransaction.domain.graphql.inputs;
 
 import jakarta.validation.constraints.NotEmpty;
 

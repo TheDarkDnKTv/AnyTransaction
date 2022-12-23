@@ -1,4 +1,4 @@
-package thedarkdnktv.anytransaction.domain;
+package thedarkdnktv.anytransaction.domain.enums;
 
 import java.util.Optional;
 

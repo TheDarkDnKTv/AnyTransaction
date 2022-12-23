@@ -6,11 +6,11 @@ import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
-import thedarkdnktv.anytransaction.data.graphql.inputs.SalesRequestInput;
-import thedarkdnktv.anytransaction.data.graphql.inputs.TransactionInput;
-import thedarkdnktv.anytransaction.data.graphql.types.SalesDto;
-import thedarkdnktv.anytransaction.data.graphql.types.TransactionResult;
-import thedarkdnktv.anytransaction.service.TransactionService;
+import thedarkdnktv.anytransaction.domain.graphql.inputs.SalesRequestInput;
+import thedarkdnktv.anytransaction.domain.graphql.inputs.TransactionInput;
+import thedarkdnktv.anytransaction.domain.graphql.types.SalesDto;
+import thedarkdnktv.anytransaction.domain.graphql.types.TransactionResult;
+import thedarkdnktv.anytransaction.domain.service.TransactionService;
 
 import jakarta.validation.Valid;
 import java.util.List;

@@ -1,4 +1,4 @@
-package thedarkdnktv.anytransaction.data.entity;
+package thedarkdnktv.anytransaction.domain.entity;
 
 import jakarta.persistence.*;
 

@@ -1,4 +1,4 @@
-package thedarkdnktv.anytransaction.data.graphql.types;
+package thedarkdnktv.anytransaction.domain.graphql.types;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

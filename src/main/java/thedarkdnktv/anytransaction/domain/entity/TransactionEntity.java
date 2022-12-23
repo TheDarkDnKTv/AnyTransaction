@@ -1,6 +1,6 @@
-package thedarkdnktv.anytransaction.data.entity;
+package thedarkdnktv.anytransaction.domain.entity;
 
-import thedarkdnktv.anytransaction.data.PaymentType;
+import thedarkdnktv.anytransaction.domain.enums.PaymentType;
 import jakarta.persistence.*;
 import java.util.Date;
 
