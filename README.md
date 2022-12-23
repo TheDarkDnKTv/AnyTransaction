@@ -14,9 +14,9 @@ TODO: deploy instructions
 - [x] You have to use Git
 - [x] Your code has to be clear
 - [x] You know good coding practices and patterns
-- [ ] Your API can handle incorrect data
-- [ ] Your architecture is extendable/testable
-- [ ] Your system can be executed easily
-- [ ] You can consider multi-thread, many servers
-- [ ] Your system should be tested
-- [ ] Your system should be able to scale with newer payment methods
+- [x] Your API can handle incorrect data
+- [x] Your architecture is extendable/testable
+- [x] Your system can be executed easily
+- [x] You can consider multi-thread, many servers
+- [x] Your system should be tested
+- [x] Your system should be able to scale with newer payment methods
