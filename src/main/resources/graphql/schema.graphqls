@@ -2,3 +2,7 @@ type Query {
     # Get all sales in time frame broken down per hour. Date format is ISO 8601:2004
     sales(customerId: Int, request: SalesDateInput!): [Sales!]!
 }
+
+type Mutation {
+    makePayment(transaction: Transaction): TransactionResult!
+}

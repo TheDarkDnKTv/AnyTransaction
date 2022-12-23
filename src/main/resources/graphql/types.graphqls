@@ -3,3 +3,8 @@ type Sales {
     sales: String
     points: Int
 }
+
+type TransactionResult {
+    finalPrice: String
+    points: Int
+}

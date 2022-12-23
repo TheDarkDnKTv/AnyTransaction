@@ -3,3 +3,12 @@ input SalesDateInput {
     startDateTime: String!
     endDateTime: String!
 }
+
+input Transaction {
+    customerId: Int!
+    price: String!
+    priceModifier: Float!
+    paymentMethod: String!
+    datetime: String!
+    additionalItem: String
+}

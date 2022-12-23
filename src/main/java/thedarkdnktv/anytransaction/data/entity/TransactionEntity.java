@@ -34,7 +34,6 @@ public class TransactionEntity {
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp = new Date();
 
-    @Column(columnDefinition = "json")
     private String metadata;
 
     public long getId() {

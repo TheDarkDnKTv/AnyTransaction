@@ -11,8 +11,15 @@ public class Validators {
         try {
             return ZonedDateTime.parse(date, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new ValidationException();
+            throw new ValidationException("Date format is invalid", e);
+        }
+    }
+
+    public static double validateDouble(String value) {
+        try {
+            return Double.parseDouble(value);
+        } catch (NumberFormatException e) {
+            throw new ValidationException("Not a float number", e);
         }
     }
 }
