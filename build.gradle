@@ -1,12 +1,12 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.0.0'
+	id 'org.springframework.boot' version "${spring_boot_version}"
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
 archivesBaseName = 'AnyTransaction'
 group = 'thedarkdnktv'
-version = '0.0.1'
+version = app_version
 sourceCompatibility = '17'
 
 repositories {
@@ -14,15 +14,16 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-graphql'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa:${spring_boot_version}"
+	implementation "org.springframework.boot:spring-boot-starter-graphql:${spring_boot_version}"
+	implementation "org.springframework.boot:spring-boot-starter-web:${spring_boot_version}"
+	implementation "org.springframework.boot:spring-boot-starter-validation:${spring_boot_version}"
 	
 	runtimeOnly 'org.postgresql:postgresql'
 	
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation "org.springframework.boot:spring-boot-starter-test:${spring_boot_version}"
+	testImplementation "org.springframework.graphql:spring-graphql-test"
 	testImplementation 'org.springframework:spring-webflux'
-	testImplementation 'org.springframework.graphql:spring-graphql-test'
 }
 
 tasks.named('test') {

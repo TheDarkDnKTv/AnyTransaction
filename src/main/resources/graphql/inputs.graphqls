@@ -1,0 +1,5 @@
+# Input for sales request, contains date string of start and end.
+input SalesDateInput {
+    startDateTime: String!
+    endDateTime: String!
+}

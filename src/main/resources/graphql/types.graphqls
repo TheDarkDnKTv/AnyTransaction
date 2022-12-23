@@ -1,0 +1,5 @@
+type Sales {
+    datetime: String,
+    sales: String
+    points: Int
+}
