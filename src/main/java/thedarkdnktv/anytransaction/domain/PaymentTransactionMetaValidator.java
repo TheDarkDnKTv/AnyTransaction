@@ -35,27 +35,19 @@ public class PaymentTransactionMetaValidator implements ITransactionMetadataVali
 
     private void validateInternal(Map<String, Object> map) {
         switch (type) {
-            case CASH_ON_DELIVERY: {
+            case CASH_ON_DELIVERY -> {
                 var value = map.get("courier");
                 if (value == null || DeliveryType.of(value.toString()).isEmpty()) {
                     throw new ValidationException("Invalid courier type");
                 }
-
-                break;
             }
-            case VISA:
-            case MASTERCARD:
-            case AMEX:
-            case JCB: {
+            case VISA, MASTERCARD, AMEX, JCB -> {
                 var value = map.get("last4");
                 if (value == null || !DIGITS_REGEX.matcher(value.toString()).matches()) {
                     throw new ValidationException("Invalid card's last 4 digit");
                 }
-
-                break;
             }
-            case BANK_TRANSFER:
-            case CHEQUE: {
+            case BANK_TRANSFER, CHEQUE -> {
                 // banking info
                 this.validateBanking(map);
 
@@ -73,8 +65,6 @@ public class PaymentTransactionMetaValidator implements ITransactionMetadataVali
                         throw new ValidationException("Account number is invalid");
                     }
                 }
-
-                break;
             }
         }
     }
