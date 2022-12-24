@@ -9,7 +9,7 @@ This is implementation of POS integrated system.
 - Build tool: Gradle 7.6
 - API: GraphQL
 
-As it's POS system, I've chosen PostgresSQL as database due relational abilities. And also PostgresSQL is pretty fast and reliable database to use, even support horizontal and vertical scaling.
+As it's POS system, I've chosen PostgresSQL as database due relational abilities. And also PostgresSQL is pretty fast and reliable database to use, even support horizontal and vertical scaling. From other side we have stateless microservice application based on Spring Boot, that perfeclty scales horizontally or vertically. In this case we can run several instsances of app and reach it via load balancer.
 In implementation, I've used next patterns: Repository, Dependency Injection. As part of SOLID principles most noticeable is Dependency Inversion principle and Interface segregation principle.
 
 ## Adding new payment methods
