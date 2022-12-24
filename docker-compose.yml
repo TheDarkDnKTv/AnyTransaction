@@ -1,0 +1,15 @@
+services:
+  any-transaction:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: any-transaction-1
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: "jdbc:postgresql://host.docker.internal:5432/anytransaction" # DB name after slash
+      DB_USER: "postgres"
+      DB_PASS: "postgres"
+      JAVA_ARGS: "" # JVM arguments
+      APPLICATION_ARGS: "" # application arguments
