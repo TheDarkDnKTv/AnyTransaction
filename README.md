@@ -1,7 +1,6 @@
 # Test payment microservice application for AnyMind
 
 This is implementation of POS integrated system.
-As it's POS system, I've chosen PostgresSQL as database due relational abilities.
 
 ## App Specification
 
@@ -10,9 +9,21 @@ As it's POS system, I've chosen PostgresSQL as database due relational abilities
 - Build tool: Gradle 7.6
 - API: GraphQL
 
-API Endpoint is on `http://localhost:8080/graphql`
+As it's POS system, I've chosen PostgresSQL as database due relational abilities. And also PostgresSQL is pretty fast and reliable database to use, even support horizontal and vertical scaling.
+In implementation, I've used next patterns: Repository, Dependency Injection. As part of SOLID principles most noticeable is Dependency Inversion principle and Interface segregation principle.
 
-Playground Endpoint is on `http://localhost:8080/graphiql`
+## Adding new payment methods
+
+In case if payment calculation logic was not changed, we need just to add enum constant to [PaymentType](src/main/java/thedarkdnktv/anytransaction/domain/enums/PaymentType.java)
+ and specify modifiers for min,max price and points.
+
+In case logic changed, we need to implement new logic calculation class and change type determination logic.
+
+## Endpoints
+
+- [http://localhost:8080/graphql](http://localhost:8080/graphql) (API Endpoint)
+- [http://localhost:8080/graphiql](http://localhost:8080/graphiql) (Playground Endpoint)
+
 
 ## Requests
 Request example are available in [postman collection](AnyTransaction.postman_collection.json)
