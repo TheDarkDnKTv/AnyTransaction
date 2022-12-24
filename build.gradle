@@ -24,8 +24,7 @@ dependencies {
 	testImplementation "org.springframework.boot:spring-boot-starter-test:${spring_boot_version}"
 	testImplementation "org.springframework.graphql:spring-graphql-test"
 	testImplementation 'org.springframework:spring-webflux'
-	testImplementation 'org.mockito:mockito-core:4.10.0'
-	testImplementation 'org.mockito:mockito-junit-jupiter:4.10.0'
+	testImplementation 'com.h2database:h2'
 }
 
 tasks.named('test') {

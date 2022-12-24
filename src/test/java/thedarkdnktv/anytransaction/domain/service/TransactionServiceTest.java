@@ -1,56 +1,43 @@
 package thedarkdnktv.anytransaction.domain.service;
 
-import org.junit.jupiter.api.BeforeEach;
+import jakarta.validation.ValidationException;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import thedarkdnktv.anytransaction.domain.entity.CustomerEntity;
-import thedarkdnktv.anytransaction.domain.entity.TransactionEntity;
 import thedarkdnktv.anytransaction.domain.enums.PaymentType;
 import thedarkdnktv.anytransaction.domain.graphql.inputs.TransactionInput;
 import thedarkdnktv.anytransaction.domain.repository.CustomerRepository;
 import thedarkdnktv.anytransaction.domain.repository.TransactionRepository;
 
-import jakarta.validation.ValidationException;
-
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
+@TestInstance(Lifecycle.PER_CLASS)
 public class TransactionServiceTest {
 
     @Autowired
     private TransactionService transactionService;
 
-    @MockBean
+    @Autowired
     private TransactionRepository transactionRepository;
 
-    @MockBean
+    @Autowired
     private CustomerRepository customerRepository;
 
-    @BeforeEach
+    @BeforeAll
     public void createMocks() {
-        when(customerRepository.findAll()).thenReturn(
-            List.of(new CustomerEntity(0L))
-        );
-
-        when(customerRepository.findById(0L)).thenReturn(
-            Optional.of(new CustomerEntity(0L))
-        );
-
-        when(transactionRepository.save(Mockito.any(TransactionEntity.class)))
-            .thenAnswer(i -> i.getArguments()[0]);
+        this.customerRepository.save(new CustomerEntity(1L));
     }
 
     @Test
     public void integration_add_default() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "100.0",
             0.9D,
             PaymentType.CASH.name(),
@@ -67,7 +54,7 @@ public class TransactionServiceTest {
     @Test
     public void integration_add_cash_on_delivery() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "60.0",
             1.0D,
             PaymentType.CASH_ON_DELIVERY.name(),
@@ -84,7 +71,7 @@ public class TransactionServiceTest {
     @Test
     public void integration_add_cash_on_delivery_wrong() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "100.0",
             0.9D,
             PaymentType.CASH_ON_DELIVERY.name(),
@@ -98,7 +85,7 @@ public class TransactionServiceTest {
     @Test
     public void integration_add_amex() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "200.0",
             0.96D,
             PaymentType.AMEX.name(),
@@ -115,7 +102,7 @@ public class TransactionServiceTest {
     @Test
     public void integration_add_mastercard_wrong() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "150.0",
             0.96D,
             PaymentType.AMEX.name(),
@@ -129,7 +116,7 @@ public class TransactionServiceTest {
     @Test
     public void integration_add_grab_pay() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "20.0",
             1D,
             PaymentType.GRAB_PAY.name(),
@@ -146,7 +133,7 @@ public class TransactionServiceTest {
     @Test
     public void integration_add_cheque_wrong() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "1000.0",
             0.95D,
             PaymentType.CHEQUE.name(),
@@ -164,7 +151,7 @@ public class TransactionServiceTest {
     @Test
     public void integration_add_cheque() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "1000.0",
             0.95D,
             PaymentType.CHEQUE.name(),
@@ -188,7 +175,7 @@ public class TransactionServiceTest {
     @Test
     public void integration_add_bank_wrong() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "700.0",
             0.99D,
             PaymentType.BANK_TRANSFER.name(),
@@ -206,7 +193,7 @@ public class TransactionServiceTest {
     @Test
     public void integration_add_bank() {
         var trans = new TransactionInput(
-            0L,
+            1L,
             "700.0",
             0.99D,
             PaymentType.BANK_TRANSFER.name(),
