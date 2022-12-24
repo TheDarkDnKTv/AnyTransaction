@@ -100,6 +100,10 @@ Required tools to deploy:
 Open terminal in this folder and run next commands:
 
 ```bash
+git clone https://github.com/TheDarkDnKTv/AnyTransaction
+```
+
+```bash
 gradlew build
 ```
 
@@ -110,6 +114,8 @@ docker-compose up -d
 ```
 
 Deploy is done.
+
+In case you need more instances to connect it load-balancer, you can set `APPLICATION_ARGS` in the `docker-compose.yml` with `--server.port=<port>`
 
 ## Interview Objectives
 - [x] You have to use a database
